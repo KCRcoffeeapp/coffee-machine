@@ -1,0 +1,51 @@
+/* Background overlay */
+.overlay {
+  position: fixed;
+  top: 7%;
+  bottom: 7%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+  z-index: 999; /* Behind the sliding panel */
+}
+
+/* Sliding panel */
+.select-page-container {
+  position: fixed;
+  top: 7%;
+  height: 86%;
+  right: -100%; /* Initially hidden off-screen */
+  width: calc(100% - 150px); /* Initially off-screen */
+  background-color: white;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Above the overlay */
+  transition: right 0.4s ease-in-out; /* Smooth slide animation */
+  /* padding: 20px; */
+  overflow-y: auto;
+}
+
+/* Slide-in effect */
+.select-page-container.visible {
+  right: 0; /* Move into view */
+}
+
+/* Sliding panel */
+.pay-page-container {
+  position: fixed;
+  top: 7%;
+  height: 86%;
+  right: -100%; /* Initially hidden off-screen */
+  width: calc(100% - 210px); /* Initially off-screen */
+  background-color: white;
+  box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+  z-index: 1000; /* Above the overlay */
+  transition: right 0.4s ease-in-out; /* Smooth slide animation */
+  /* padding: 20px; */
+  overflow-y: auto;
+}
+
+/* Slide-in effect */
+.pay-page-container.visible {
+  right: 0; /* Move into view */
+}

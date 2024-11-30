@@ -1,0 +1,369 @@
+<div
+  class="bg-accent"
+  style="position: relative; left: -50%; width: 200%; height: 25%; z-index: -1"
+></div>
+<div
+  style="position: relative; width: 100%; height: 25%; top: -25%"
+  class="p-3"
+>
+  <div class="text-xl text-primary font-bold">Najbolj popularno</div>
+  <div class="flex flex-row items-end gap-4">
+    <div
+      (click)="openSelectPage('Capuccino', '1.00 €')"
+      class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+      style="height: 120px; width: 120px"
+    >
+      <img
+        src="icons/coffee.svg"
+        alt="Coffee Cup Icon"
+        style="height: 70px; width: 70px"
+      />
+      <div class="text-xs">Capuccino</div>
+      <div class="text-xs">1.00 €</div>
+    </div>
+
+    <div
+      (click)="openSelectPage('Espresso', '0.80 €')"
+      class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+      style="height: 111px; width: 111px; top: 10px"
+    >
+      <img
+        src="icons/coffee.svg"
+        alt="Coffee Cup Icon"
+        style="height: 60px; width: 60px"
+      />
+      <div class="text-xs">Espresso</div>
+      <div class="text-xs">0.80 €</div>
+    </div>
+
+    <div
+      (click)="openSelectPage('Latte', '1.20 €')"
+      class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+      style="height: 111px; width: 111px; top: 10px"
+    >
+      <img
+        src="icons/coffee.svg"
+        alt="Coffee Cup Icon"
+        style="height: 60px; width: 60px"
+      />
+      <div class="text-xs">Latte</div>
+      <div class="text-xs">1.20 €</div>
+    </div>
+  </div>
+</div>
+
+<div class="flex gap-4 p-2" style="height: 75%; position: absolute; width: 100%; top: 25%">
+  <div
+    (click)="openSelectPage('Capuccino', '1.00 €')"
+    class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+    style="height: 114px; width: 114px"
+  >
+    <img
+      src="icons/coffee.svg"
+      alt="Coffee Cup Icon"
+      style="height: 60px; width: 60px"
+    />
+    <div class="text-xs">Capuccino</div>
+    <div class="text-xs">1.00 €</div>
+  </div>
+
+  <div
+    (click)="openSelectPage('Espresso', '0.80 €')"
+    class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+    style="height: 114px; width: 114px;"
+  >
+    <img
+      src="icons/coffee.svg"
+      alt="Coffee Cup Icon"
+      style="height: 60px; width: 60px"
+    />
+    <div class="text-xs">Espresso</div>
+    <div class="text-xs">0.80 €</div>
+  </div>
+
+  <div
+    (click)="openSelectPage('Latte', '1.20 €')"
+    class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+    style="height: 114px; width: 114px; top: 10px"
+  >
+    <img
+      src="icons/coffee.svg"
+      alt="Coffee Cup Icon"
+      style="height: 60px; width: 60px"
+    />
+    <div class="text-xs">Latte</div>
+    <div class="text-xs">1.20 €</div>
+  </div>
+</div>
+
+
+
+
+
+<div class="flex gap-4 p-2" style="height: 75%; position: absolute; width: 100%; top: 45%">
+  <div
+    (click)="openSelectPage('Capuccino', '1.00 €')"
+    class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+    style="height: 114px; width: 114px"
+  >
+    <img
+      src="icons/coffee.svg"
+      alt="Coffee Cup Icon"
+      style="height: 60px; width: 60px"
+    />
+    <div class="text-xs">Capuccino</div>
+    <div class="text-xs">1.00 €</div>
+  </div>
+
+  <div
+    (click)="openSelectPage('Espresso', '0.80 €')"
+    class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+    style="height: 114px; width: 114px;"
+  >
+    <img
+      src="icons/coffee.svg"
+      alt="Coffee Cup Icon"
+      style="height: 60px; width: 60px"
+    />
+    <div class="text-xs">Espresso</div>
+    <div class="text-xs">0.80 €</div>
+  </div>
+
+  <div
+    (click)="openSelectPage('Latte', '1.20 €')"
+    class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+    style="height: 114px; width: 114px; top: 10px"
+  >
+    <img
+      src="icons/coffee.svg"
+      alt="Coffee Cup Icon"
+      style="height: 60px; width: 60px"
+    />
+    <div class="text-xs">Latte</div>
+    <div class="text-xs">1.20 €</div>
+  </div>
+</div>
+
+<div class="flex gap-4 p-2" style="height: 75%; position: absolute; width: 100%; top: 65%">
+  <div
+    (click)="openSelectPage('Capuccino', '1.00 €')"
+    class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+    style="height: 114px; width: 114px"
+  >
+    <img
+      src="icons/coffee.svg"
+      alt="Coffee Cup Icon"
+      style="height: 60px; width: 60px"
+    />
+    <div class="text-xs">Capuccino</div>
+    <div class="text-xs">1.00 €</div>
+  </div>
+
+  <div
+    (click)="openSelectPage('Espresso', '0.80 €')"
+    class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+    style="height: 114px; width: 114px;"
+  >
+    <img
+      src="icons/coffee.svg"
+      alt="Coffee Cup Icon"
+      style="height: 60px; width: 60px"
+    />
+    <div class="text-xs">Espresso</div>
+    <div class="text-xs">0.80 €</div>
+  </div>
+
+  <div
+    (click)="openSelectPage('Latte', '1.20 €')"
+    class="flex flex-col items-center text-center text-lg bg-primary text-accent rounded-lg shadow-lg p-4 cursor-pointer mt-2"
+    style="height: 114px; width: 114px; top: 10px"
+  >
+    <img
+      src="icons/coffee.svg"
+      alt="Coffee Cup Icon"
+      style="height: 60px; width: 60px"
+    />
+    <div class="text-xs">Latte</div>
+    <div class="text-xs">1.20 €</div>
+  </div>
+</div>
+
+
+
+<!-- Background Overlay -->
+<div
+  *ngIf="isSelectPageVisible"
+  class="overlay"
+  (click)="closeSelectPage(); closePayPage()"
+></div>
+
+<!-- Sliding Select Page -->
+<div
+  [class.visible]="isSelectPageVisible"
+  class="select-page-container relative flex"
+>
+  <!-- Left Vertical Border with Text -->
+  <div
+    class="vertical-label bg-accent text-white text-lg font-bold flex items-center justify-center"
+    style="width: 60px"
+    (click)="closePayPage()"
+  >
+    <span class="transform -rotate-90 whitespace-nowrap">Dodatki</span>
+  </div>
+
+  <!-- Main Content of the Sliding Panel -->
+  <div class="flex-1 p-6">
+    <!-- Header -->
+    <h1 class="text-3xl font-bold text-center mb-6">
+      Dodatki za {{ selectedBeverage | titlecase }}
+    </h1>
+
+    <!-- Sugar Slider Section -->
+    <div class="customization-section mb-8">
+      <h2 class="text-lg font-semibold mb-4 flex items-center text-gray-700">
+        <i class="fas fa-cube mr-2 text-accent"></i> Sladkor
+      </h2>
+      <div>
+        <input
+          type="range"
+          min="0"
+          max="4"
+          value="0"
+          class="w-full h-2 bg-gray-300 rounded-lg appearance-none focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          id="sugarLevel"
+        />
+        <div class="flex justify-between mt-2 text-sm text-gray-500">
+          <span>Brez</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toppings Section -->
+    <div class="customization-section mb-8">
+      <h2 class="text-lg font-semibold mb-4 flex items-center text-gray-700">
+        <i class="fas fa-cookie-bite mr-2 text-black"></i> Posip
+      </h2>
+      <div class="grid grid-cols-3 gap-4">
+        <!-- Topping: Brez -->
+        <button
+          (click)="selectedTopping = 'none'"
+          [ngClass]="{
+            'bg-accent text-white hover:bg-accent-dark':
+              selectedTopping === 'none',
+            'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+              selectedTopping !== 'none'
+          }"
+          class="p-4 border rounded-lg cursor-pointer text-center transition"
+        >
+          Brez
+        </button>
+
+        <!-- Topping: Čokoladni -->
+        <button
+          (click)="selectedTopping = 'chocolate'"
+          [ngClass]="{
+            'bg-accent text-white hover:bg-accent-dark':
+              selectedTopping === 'chocolate',
+            'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+              selectedTopping !== 'chocolate'
+          }"
+          class="p-4 border rounded-lg cursor-pointer text-center transition"
+        >
+          Čokoladni
+        </button>
+
+        <!-- Topping: Penice -->
+        <button
+          (click)="selectedTopping = 'marshmallow'"
+          [ngClass]="{
+            'bg-accent text-white hover:bg-accent-dark':
+              selectedTopping === 'marshmallow',
+            'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+              selectedTopping !== 'marshmallow'
+          }"
+          class="p-4 border rounded-lg cursor-pointer text-center transition"
+        >
+          Penice
+        </button>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex justify-between mt-6">
+      <button
+        class="px-6 py-2 text-white bg-primary rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-gray-500"
+        (click)="closeSelectPage()"
+      >
+        <i class="fas fa-arrow-left mr-2"></i>Nazaj
+      </button>
+      <button
+        class="px-6 py-2 text-white bg-accent rounded-lg hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-dark"
+        (click)="openPayPage(selectedBeverage)"
+      >
+        <i class="fas fa-wallet mr-2"></i>Plačaj
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Sliding Pay Page -->
+<div
+  [class.visible]="isPayPageVisible"
+  class="pay-page-container relative flex"
+>
+  <!-- Left Vertical Border with Text -->
+  <div
+    class="vertical-label bg-accent text-white text-lg font-bold flex items-center justify-center"
+  >
+    <span class="transform -rotate-90 whitespace-nowrap">Plačilo</span>
+  </div>
+
+  <!-- Main Content of the Sliding Panel -->
+  <div class="flex-1 p-6">
+    <!-- Header -->
+    <h1 class="text-3xl font-bold text-center mb-6">
+      Plačaj za {{ selectedBeverage | titlecase }}
+    </h1>
+
+    <!-- Price Section -->
+    <div class="customization-section mb-8">
+      <h2 class="text-lg font-semibold mb-4 flex items-center text-gray-700">
+        <i class="text-accent"></i> Cena
+      </h2>
+      <div
+        class="flex items-center justify-center text-4xl font-bold text-accent"
+      >
+        {{ selectedPrice }}
+      </div>
+
+      <h2 class="text-lg font-semibold mb-4 flex items-center text-gray-700">
+        <i class="text-accent"></i> Kredit
+      </h2>
+
+      <div
+        class="flex items-center justify-center text-4xl font-bold text-accent"
+      >
+        0.00 €
+      </div>
+      <!-- Buttons -->
+      <div class="flex justify-between mt-6">
+        <button
+          class="px-6 py-2 text-white bg-primary rounded-lg hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-gray-500"
+          (click)="closePayPage()"
+        >
+          <i class="fas fa-arrow-left mr-2"></i>Nazaj
+        </button>
+        <button
+          class="px-6 py-2 text-white bg-accent rounded-lg hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-dark"
+          (click)="navigateTo('brewing')"
+        >
+          <i class="fas fa-mug-hot mr-2"></i>Skuhaj
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
