@@ -16,7 +16,7 @@
   top: 7%;
   height: 86%;
   right: -100%; /* Initially hidden off-screen */
-  width: calc(100% - 150px); /* Initially off-screen */
+  width: 85%; /* Initially off-screen */
   background-color: white;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
   z-index: 1000; /* Above the overlay */
@@ -36,7 +36,7 @@
   top: 7%;
   height: 86%;
   right: -100%; /* Initially hidden off-screen */
-  width: calc(100% - 210px); /* Initially off-screen */
+  width: calc(85% - 60px); /* Initially off-screen */
   background-color: white;
   box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
   z-index: 1000; /* Above the overlay */

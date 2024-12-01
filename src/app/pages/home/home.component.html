@@ -1,70 +1,73 @@
-<div class="flex" style="height: 93%; position: absolute; width: 100%; top: 7%">
-  <div class="h-screen py-4 pr-4" style="z-index: 1; width: 150px;">
-    <div class="flex flex-col gap-4" style="height: 100%">
+<div
+  class="flex"
+  style="height: 100%; position: absolute; width: 100%; top: 7%"
+>
+  <div class="h-screen py-4 pr-4" style="z-index: 1; width: 20%">
+    <div class="flex flex-col gap-[1.5vh]" style="height: 100%">
       <div
         (click)="currentView = 'popular'"
-        class="flex flex-col items-center gap-2 text-center text-lg bg-primary text-accent rounded-r-lg shadow-lg cursor-pointer"
+        class="flex flex-col items-center gap-[2vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh]"
         style="height: 15%"
       >
-        <div style="font-size: 16px">Popular</div>
+        <div style="height: 20%">Popular</div>
         <img
           src="icons/coffee.svg"
           alt="Coffee Cup Icon"
-          style="height: 70px; width: 120px"
+          style="height: 75%; width: 75%"
         />
       </div>
-  
+
       <div
         (click)="currentView = 'teas'"
-        class="flex flex-col items-center gap-2 text-center text-lg bg-primary text-accent rounded-r-lg shadow-lg cursor-pointer"
+        class="flex flex-col items-center gap-[2vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh]"
         style="height: 15%"
       >
-        <div style="font-size: 16px">Teas</div>
+        <div style="height: 20%">Teas</div>
         <img
           src="icons/coffee.svg"
           alt="Coffee Cup Icon"
-          style="height: 70px; width: 120px"
+          style="height: 75%; width: 75%"
         />
       </div>
-  
+
       <div
         (click)="currentView = 'flavoured'"
-        class="flex flex-col items-center gap-2 text-center text-lg bg-primary text-accent rounded-r-lg shadow-lg cursor-pointer"
+        class="flex flex-col items-center gap-[2vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh]"
         style="height: 15%"
       >
-        <div style="font-size: 16px">Flavoured</div>
+        <div style="height: 20%">Flavoured</div>
         <img
           src="icons/coffee.svg"
           alt="Coffee Cup Icon"
-          style="height: 70px; width: 120px"
+          style="height: 75%; width: 75%"
         />
       </div>
-  
+
       <div
         (click)="currentView = 'more'"
-        class="flex flex-col items-center gap-2 text-center text-lg bg-primary text-accent rounded-r-lg shadow-lg cursor-pointer"
+        class="flex flex-col items-center gap-[2vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh]"
         style="height: 15%"
       >
-        <div style="font-size: 16px">More</div>
+        <div style="height: 20%">More</div>
         <img
           src="icons/coffee.svg"
           alt="Coffee Cup Icon"
-          style="height: 70px; width: 120px"
+          style="height: 75%; width: 75%"
         />
       </div>
     </div>
   </div>
-  
+
   <div class="flex-1">
     <!-- Render Popular -->
     <app-popular *ngIf="currentView === 'popular'"></app-popular>
-    
+
     <!-- Render Teas -->
     <app-teas *ngIf="currentView === 'teas'"></app-teas>
 
     <!-- Render Flavoured -->
     <app-flavoured *ngIf="currentView === 'flavoured'"></app-flavoured>
-    
+
     <!-- Render More -->
     <app-more *ngIf="currentView === 'more'"></app-more>
   </div>
