@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PopularComponent } from './categories/popular/popular.component';
+import { CoffeesComponent } from './categories/coffees/coffees.component';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TeasComponent } from './categories/teas/teas.component';
@@ -9,7 +9,7 @@ import { MoreComponent } from './categories/more/more.component';
 @Component({
   selector: 'app-home',
   imports: [
-    PopularComponent,
+    CoffeesComponent,
     CommonModule,
     TeasComponent,
     FlavouredComponent,
@@ -23,5 +23,5 @@ export class HomeComponent {
   navigateTo(route: string) {
     this.router.navigate([route]);
   }
-  currentView: string = 'popular'; // Default view
+  currentView: string = 'coffees'; // Default view
 }

@@ -1,17 +1,28 @@
-<div class="brewing-container">
-    <!-- Coffee Machine -->
-    <div class="coffee-machine">
-      <div class="coffee-glass">
-        <div class="coffee-liquid" [class.filled]="isFilled"></div>
-      </div>
+<div
+  class="flex flex-col items-center justify-center h-screen bg-gray-100 font-sans"
+>
+  <!-- Coffee Machine -->
+  <div class="w-24 h-36 bg-gray-800 rounded-lg relative shadow-md mb-5">
+    <div
+      class="w-16 h-20 bg-gray-300 rounded-b-lg absolute bottom-5 left-1/2 transform -translate-x-1/2 overflow-hidden border-2 border-gray-400"
+    >
+      <div
+        class="w-full h-full bg-gradient-to-t from-[#6b4f2a] to-[#aa7f4f] mt-1/4 transition-transform duration-[5000ms]"
+        [class.filled]="isFilled"
+      ></div>
     </div>
-  
-    <!-- Progress Bar -->
-    <div class="progress-bar">
-      <div class="progress" [style.width]="progressWidth"></div>
-    </div>
-  
-    <!-- Brewing Status -->
-    <div class="status-text text-[3vh]">{{ brewingStatus }}</div>
   </div>
-  
+
+  <!-- Progress Bar -->
+  <div
+    class="w-72 h-5 bg-gray-300 rounded-lg overflow-hidden border-2 border-gray-400 my-5"
+  >
+    <div
+      class="h-full bg-gradient-to-r from-[#6b4f2a] to-[#aa7f4f] transition-all duration-[5000ms]"
+      [style.width]="progressWidth"
+    ></div>
+  </div>
+
+  <!-- Brewing Status -->
+  <div class="text-gray-700 text-[3vh] mt-2">{{ brewingStatus }}</div>
+</div>

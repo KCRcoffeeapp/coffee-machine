@@ -5,6 +5,6 @@ import { BrewingComponent } from './pages/brewing/brewing.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent }, // Root route for the home page
-  { path: 'teas', component: TeasComponent }, // Route for the popular page
+  { path: 'teas', component: TeasComponent }, // Route for the coffees page
   { path: 'brewing', component: BrewingComponent }, // Route for the brewing page
 ];

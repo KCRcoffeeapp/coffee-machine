@@ -1,0 +1,243 @@
+<!-- <div class="absolute left-[-20%] w-[120%] h-[25%] bg-accent -z-10"></div> -->
+<div class="h-[90%] flex flex-col">
+  <div class="w-[100% + 18vh] top-0 p-[1vh] bg-accent ml-[-18vh] pl-[18vh]">
+    <div class="h-[20%] pl-[1vh] text-[3vh] text-primary font-bold -z-10">
+      Z enim klikom
+    </div>
+    <div
+      [ngStyle]="{ width: (beverages | slice : 0 : 3).length * 19 + 'vh' }"
+      class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
+    >
+      <app-beverage-card
+        *ngFor="let beverage of beverages | slice : 0 : 3"
+        [name]="beverage.name"
+        [price]="beverage.price"
+        [imgSrc]="beverage.imgSrc"
+        (click)="openSelectPage(beverage.name, beverage.price)"
+      ></app-beverage-card>
+    </div>
+  </div>
+
+  <div class="flex-1 overflow-scroll">
+    <div
+      [ngStyle]="{ width: (beverages | slice : 0 : 3).length * 19 + 'vh' }"
+      class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
+    >
+      <app-beverage-card
+        *ngFor="let beverage of beverages | slice : 0 : 3"
+        [name]="beverage.name"
+        [price]="beverage.price"
+        [imgSrc]="beverage.imgSrc"
+        (click)="openSelectPage(beverage.name, beverage.price)"
+      ></app-beverage-card>
+    </div>
+    <div
+      [ngStyle]="{ width: (beverages | slice : 3 : 6).length * 19 + 'vh' }"
+      class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
+    >
+      <app-beverage-card
+        *ngFor="let beverage of beverages | slice : 3 : 6"
+        [name]="beverage.name"
+        [price]="beverage.price"
+        [imgSrc]="beverage.imgSrc"
+        (click)="openSelectPage(beverage.name, beverage.price)"
+      ></app-beverage-card>
+    </div>
+    <div
+      [ngStyle]="{ width: (beverages | slice : 6 : 9).length * 19 + 'vh' }"
+      class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
+    >
+      <app-beverage-card
+        *ngFor="let beverage of beverages | slice : 6 : 9"
+        [name]="beverage.name"
+        [price]="beverage.price"
+        [imgSrc]="beverage.imgSrc"
+        (click)="openSelectPage(beverage.name, beverage.price)"
+      ></app-beverage-card>
+    </div>
+  </div>
+</div>
+
+<!-- Background Overlay -->
+<div
+  *ngIf="isSelectPageVisible"
+  class="fixed top-[7%] bottom-[7%] left-0 w-full h-full bg-black bg-opacity-50 z-[999]"
+  (click)="closeSelectPage(); closePayPage()"
+></div>
+
+<!-- Sliding Select Page -->
+<div
+  [ngClass]="{
+    'right-0': isSelectPageVisible,
+    'right-[-100%]': !isSelectPageVisible
+  }"
+  class="fixed top-[7%] h-[86%] w-[85%] bg-white shadow-lg z-[1000] transition-all duration-700 ease-in-out overflow-y-auto flex"
+>
+  <!-- Left Vertical Border with Text -->
+  <div
+    class="w-[8vh] bg-accent text-white text-[2vh] font-bold flex items-center justify-center"
+    (click)="closePayPage()"
+  >
+    <span class="transform -rotate-90 whitespace-nowrap">Dodatki</span>
+  </div>
+
+  <!-- Main Content of the Sliding Panel -->
+  <div class="flex-1 p-6">
+    <!-- Header -->
+    <h1 class="text-[3vh] font-bold text-center mb-6">
+      Dodatki za {{ selectedBeverage | titlecase }}
+    </h1>
+
+    <!-- Sugar Slider Section -->
+    <div class="mb-8">
+      <h2 class="text-[3vh] font-semibold mb-4 flex items-center text-gray-700">
+        <i class="fas fa-cube mr-2 text-accent"></i> Sladkor
+      </h2>
+      <div>
+        <input
+          type="range"
+          min="0"
+          max="4"
+          value="0"
+          class="w-full h-2 bg-gray-300 rounded-[3vh] appearance-none focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+          id="sugarLevel"
+        />
+        <div class="flex justify-between mt-2 text-[2vh] text-gray-500">
+          <span>Brez</span>
+          <span>1</span>
+          <span>2</span>
+          <span>3</span>
+          <span>4</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Toppings Section -->
+    <div class="mb-8 text-[2vh]">
+      <h2 class="text-[3vh] font-semibold mb-4 flex items-center text-gray-700">
+        <i class="fas fa-cookie-bite mr-2 text-black"></i> Posip
+      </h2>
+      <div class="grid grid-cols-3 gap-[1vh]">
+        <!-- Topping: Brez -->
+        <button
+          (click)="selectedTopping = 'none'"
+          [ngClass]="{
+            'bg-accent text-white hover:bg-accent-dark':
+              selectedTopping === 'none',
+            'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+              selectedTopping !== 'none'
+          }"
+          class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
+        >
+          Brez
+        </button>
+
+        <!-- Topping: Čokoladni -->
+        <button
+          (click)="selectedTopping = 'chocolate'"
+          [ngClass]="{
+            'bg-accent text-white hover:bg-accent-dark':
+              selectedTopping === 'chocolate',
+            'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+              selectedTopping !== 'chocolate'
+          }"
+          class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
+        >
+          Čokoladni
+        </button>
+
+        <!-- Topping: Penice -->
+        <button
+          (click)="selectedTopping = 'marshmallow'"
+          [ngClass]="{
+            'bg-accent text-white hover:bg-accent-dark':
+              selectedTopping === 'marshmallow',
+            'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+              selectedTopping !== 'marshmallow'
+          }"
+          class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
+        >
+          Penice
+        </button>
+      </div>
+    </div>
+
+    <!-- Buttons -->
+    <div class="flex justify-between mt-6">
+      <button
+        class="px-6 py-2 text-white bg-primary rounded-[1vh] hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-gray-500 text-[2vh]"
+        (click)="closeSelectPage()"
+      >
+        <i class="fas fa-arrow-left mr-2"></i>Nazaj
+      </button>
+      <button
+        class="px-6 py-2 text-white bg-accent rounded-[1vh] hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-dark text-[2vh]"
+        (click)="openPayPage(selectedBeverage)"
+      >
+        <i class="fas fa-wallet mr-2"></i>Plačaj
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- Sliding Pay Page -->
+<div
+  [ngClass]="{
+    'right-0': isPayPageVisible,
+    'right-[-100%]': !isPayPageVisible
+  }"
+  class="fixed top-[7%] h-[86%] right-[-100%] w-[calc(85%-8vh)] bg-white shadow-lg z-[1000] transition-all duration-700 ease-in-out overflow-y-auto flex"
+>
+  <!-- Left Vertical Border with Text -->
+  <div
+    class="w-[8vh] bg-accent text-white text-lg font-bold flex items-center justify-center"
+  >
+    <span class="transform -rotate-90 whitespace-nowrap text-[2vh]"
+      >Plačilo</span
+    >
+  </div>
+
+  <!-- Main Content of the Sliding Panel -->
+  <div class="flex-1 p-6">
+    <!-- Header -->
+    <h1 class="text-[3vh] font-bold text-center mb-6">
+      Plačaj za {{ selectedBeverage | titlecase }}
+    </h1>
+
+    <!-- Price Section -->
+    <div class="mb-8">
+      <h2 class="text-[2vh] font-semibold mb-4 flex items-center text-gray-700">
+        <i class="text-accent"></i> Cena
+      </h2>
+      <div
+        class="flex items-center justify-center text-[3vh] font-bold text-accent"
+      >
+        {{ selectedPrice }}
+      </div>
+
+      <h2 class="text-[2vh] font-semibold mb-4 flex items-center text-gray-700">
+        <i class="text-accent"></i> Kredit
+      </h2>
+      <div
+        class="flex items-center justify-center text-[3vh] font-bold text-accent"
+      >
+        0.00 €
+      </div>
+      <!-- Buttons -->
+      <div class="flex justify-between mt-6">
+        <button
+          class="px-6 py-2 text-white bg-primary rounded-[1vh] hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-gray-500 text-[2vh]"
+          (click)="closePayPage()"
+        >
+          <i class="fas fa-arrow-left mr-2"></i>Nazaj
+        </button>
+        <button
+          class="px-6 py-2 text-white bg-accent rounded-[1vh] hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-dark text-[2vh]"
+          (click)="navigateTo('brewing')"
+        >
+          <i class="fas fa-mug-hot mr-2"></i>Skuhaj
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
