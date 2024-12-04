@@ -5,7 +5,7 @@
       Z enim klikom
     </div>
     <div
-      [ngStyle]="{ width: (beverages | slice : 0 : 3).length * 19 + 'vh' }"
+      [ngStyle]="{ 'max-width': (beverages | slice : 0 : 3).length * 19 + 'vh' }"
       class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
     >
       <app-beverage-card
@@ -20,7 +20,7 @@
 
   <div class="flex-1 overflow-scroll">
     <div
-      [ngStyle]="{ width: (beverages | slice : 0 : 3).length * 19 + 'vh' }"
+      [ngStyle]="{ 'max-width': (beverages | slice : 0 : 3).length * 19 + 'vh' }"
       class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
     >
       <app-beverage-card
@@ -32,7 +32,7 @@
       ></app-beverage-card>
     </div>
     <div
-      [ngStyle]="{ width: (beverages | slice : 3 : 6).length * 19 + 'vh' }"
+      [ngStyle]="{ 'max-width': (beverages | slice : 3 : 6).length * 19 + 'vh' }"
       class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
     >
       <app-beverage-card
@@ -44,7 +44,7 @@
       ></app-beverage-card>
     </div>
     <div
-      [ngStyle]="{ width: (beverages | slice : 6 : 9).length * 19 + 'vh' }"
+      [ngStyle]="{ 'max-width': (beverages | slice : 6 : 9).length * 19 + 'vh' }"
       class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
     >
       <app-beverage-card
