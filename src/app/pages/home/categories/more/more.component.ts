@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { BeverageCardComponent } from '../../../../components/beverage-card/beverage-card.component';
 import { SelectPageComponent } from '../../../../components/select-page/select-page.component';
 import { PayPageComponent } from '../../../../components/pay-page/pay-page.component';
 import { BrewingComponent } from '../../../brewing/brewing.component';
 import { Beverage } from '../../../../../main';
+import { TranslationService } from '../../../../services/translation.service';
 
 @Component({
   selector: 'app-more',
@@ -21,19 +21,20 @@ import { Beverage } from '../../../../../main';
   ],
 })
 export class MoreComponent {
-  constructor(private router: Router) {}
+  constructor(public translationService: TranslationService) {}
 
   isSelectPageVisible = false;
   isPayPageVisible = false;
   isBrewPageVisible = false;
   selectedBeverage: Beverage = {
     name: '',
+    name_en: '',
     price: '',
     imgSrc: '',
     size: '',
     sugar: null,
+    toppings: [],
   };
-  selectedPrice = '';
 
   openSelectPage(beverage: Beverage): void {
     this.selectedBeverage = { ...beverage };
@@ -47,6 +48,7 @@ export class MoreComponent {
 
   openPayPage(beverage: {
     name: string;
+    name_en: string;
     price: string;
     imgSrc: string;
     size: string;
@@ -61,6 +63,7 @@ export class MoreComponent {
 
   openBrewPage(beverage: {
     name: string;
+    name_en: string;
     price: string;
     imgSrc: string;
     size: string;
@@ -74,55 +77,63 @@ export class MoreComponent {
     console.log('isBrewPageVisible:', this.isBrewPageVisible);
   }
 
-  navigateTo(route: string): void {
-    this.router.navigate([route]);
-  }
-
   @Input() oneClickBeverages = [
     {
       name: 'Vroča čokolada',
+      name_en: 'Hot chocolate',
       price: '0.80 €',
       imgSrc: 'vroca_cokolada',
       size: 'big',
       sugar: 2,
+      toppings: [],
     },
     {
       name: 'Kakav',
+      name_en: 'Cocoa',
       price: '0.90 €',
       imgSrc: 'kakav',
       size: 'big',
       sugar: 1,
+      toppings: [],
     },
     {
       name: 'Bela vroča čokolada',
+      name_en: 'White hot chocolate',
       price: '1.20 €',
       imgSrc: 'bela_vroca_cokolada',
       size: 'big',
       sugar: 1,
+      toppings: [],
     },
   ];
 
   @Input() beverages = [
     {
       name: 'Vroča čokolada',
+      name_en: 'Hot chocolate',
       price: '0.80 €',
       imgSrc: 'vroca_cokolada',
       size: 'big',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Kakav',
+      name_en: 'Cocoa',
       price: '0.90 €',
       imgSrc: 'kakav',
       size: 'big',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Bela vroča čokolada',
+      name_en: 'White hot chocolate',
       price: '1.20 €',
       imgSrc: 'bela_vroca_cokolada',
       size: 'big',
       sugar: null,
+      toppings: [],
     },
   ];
 

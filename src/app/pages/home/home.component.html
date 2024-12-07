@@ -7,7 +7,7 @@
         class="flex flex-col items-center justify-end gap-[0vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh] pt-[2vh] pb-[2vh] font-bold"
       >
         <img src="icons/macchiato.svg" alt="Coffee Cup Icon" class="w-[100%]" />
-        KAVE
+        {{ translationService.translate({ en: "COFFEES", sl: "KAVE" }) }}
       </div>
 
       <!-- Teas -->
@@ -20,7 +20,7 @@
           alt="Coffee Cup Icon"
           class="w-[100%]"
         />
-        ČAJI
+        {{ translationService.translate({ en: "TEAS", sl: "ČAJI" }) }}
       </div>
 
       <!-- More -->
@@ -33,7 +33,14 @@
           alt="Coffee Cup Icon"
           class="w-[90%]"
         />
-        <span class="leading-[2vh]">DRUGI NAPITKI</span>
+        <span class="leading-[2vh]">
+          {{
+            translationService.translate({
+              en: "OTHER DRINKS",
+              sl: "OSTALI NAPITKI"
+            })
+          }}
+        </span>
       </div>
     </div>
   </div>
@@ -44,9 +51,6 @@
 
     <!-- Render Teas -->
     <app-teas *ngIf="currentView === 'teas'"></app-teas>
-
-    <!-- Render Flavoured -->
-    <app-flavoured *ngIf="currentView === 'flavoured'"></app-flavoured>
 
     <!-- Render More -->
     <app-more *ngIf="currentView === 'more'"></app-more>

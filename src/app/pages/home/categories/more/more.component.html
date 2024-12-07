@@ -2,7 +2,12 @@
 <div class="h-[9s0%] flex flex-col">
   <div class="w-[100% + 18vh] top-0 p-[1vh] bg-accent ml-[-18vh] pl-[18vh]">
     <div class="h-[20%] pl-[1vh] text-[3vh] text-primary font-bold -z-10">
-      Z enim klikom
+      {{
+        translationService.translate({
+          en: "With one click",
+          sl: "Z enim klikom"
+        })
+      }}
     </div>
     <div
       [ngStyle]="{

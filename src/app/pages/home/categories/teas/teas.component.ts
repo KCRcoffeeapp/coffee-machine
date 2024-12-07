@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { Router } from '@angular/router';
 import { BeverageCardComponent } from '../../../../components/beverage-card/beverage-card.component';
 import { SelectPageComponent } from '../../../../components/select-page/select-page.component';
 import { PayPageComponent } from '../../../../components/pay-page/pay-page.component';
 import { BrewingComponent } from '../../../brewing/brewing.component';
 import { Beverage } from '../../../../../main';
+import { TranslationService } from '../../../../services/translation.service';
 
 @Component({
   selector: 'app-teas',
@@ -21,19 +21,20 @@ import { Beverage } from '../../../../../main';
   ],
 })
 export class TeasComponent {
-  constructor(private router: Router) {}
+  constructor(public translationService: TranslationService) {}
 
   isSelectPageVisible = false;
   isPayPageVisible = false;
   isBrewPageVisible = false;
   selectedBeverage: Beverage = {
     name: '',
+    name_en: '',
     price: '',
     imgSrc: '',
     size: '',
     sugar: null,
+    toppings: [],
   };
-  selectedPrice = '';
 
   openSelectPage(beverage: Beverage): void {
     this.selectedBeverage = { ...beverage };
@@ -47,6 +48,7 @@ export class TeasComponent {
 
   openPayPage(beverage: {
     name: string;
+    name_en: string;
     price: string;
     imgSrc: string;
     size: string;
@@ -61,6 +63,7 @@ export class TeasComponent {
 
   openBrewPage(beverage: {
     name: string;
+    name_en: string;
     price: string;
     imgSrc: string;
     size: string;
@@ -71,65 +74,83 @@ export class TeasComponent {
 
   closeBrewPage(): void {
     this.isBrewPageVisible = false;
-    console.log('isBrewPageVisible:', this.isBrewPageVisible);
-  }
-
-  navigateTo(route: string): void {
-    this.router.navigate([route]);
+    this.selectedBeverage = {
+      name: '',
+      name_en: '',
+      price: '',
+      imgSrc: '',
+      size: '',
+      sugar: 0,
+      toppings: [],
+    };
   }
 
   @Input() oneClickBeverages = [
     {
       name: 'Zeleni čaj',
+      name_en: 'Green tea',
       price: '0.80 €',
       imgSrc: 'zeleni_caj',
       size: 'small',
       sugar: 3,
+      toppings: [],
     },
     {
       name: 'Črni čaj',
+      name_en: 'Black tea',
       price: '0.90 €',
       imgSrc: 'crni_caj',
       size: 'small',
       sugar: 4,
+      toppings: [],
     },
     {
       name: 'Planinski čaj',
+      name_en: 'Mountain tea',
       price: '0.80 €',
       imgSrc: 'planinski_caj',
       size: 'small',
       sugar: 1,
+      toppings: [],
     },
   ];
 
   @Input() beverages = [
     {
       name: 'Zeleni čaj',
+      name_en: 'Green tea',
       price: '0.80 €',
       imgSrc: 'zeleni_caj',
       size: 'small',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Kamilični čaj',
+      name_en: 'Chamomile tea',
       price: '0.90 €',
       imgSrc: 'kamilicni_caj',
       size: 'small',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Črni čaj',
+      name_en: 'Black tea',
       price: '0.90 €',
       imgSrc: 'crni_caj',
       size: 'small',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Planinski čaj',
+      name_en: 'Mountain tea',
       price: '0.80 €',
       imgSrc: 'planinski_caj',
       size: 'small',
       sugar: null,
+      toppings: [],
     },
   ];
 

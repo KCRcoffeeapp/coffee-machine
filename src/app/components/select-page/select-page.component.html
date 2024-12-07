@@ -5,13 +5,21 @@
   class="w-[8vh] bg-accent text-white text-[2vh] font-bold flex items-center justify-center"
   (click)="closePay()"
 >
-  <span class="transform -rotate-90 whitespace-nowrap">Dodatki</span>
+  <span class="transform -rotate-90 whitespace-nowrap">{{
+    translationService.translate({ en: "Extras", sl: "Dodatki" })
+  }}</span>
 </div>
 
 <!-- Main Content -->
 <div class="flex-1 p-6">
   <h1 class="text-[3vh] font-bold text-center mb-6">
-    Dodatki za {{ selectedBeverage.name }}
+    {{ translationService.translate({ sl: "Dodatki za", en: "Extras for" }) }}
+    {{
+      translationService.translate({
+        en: selectedBeverage.name_en,
+        sl: selectedBeverage.name
+      })
+    }}
   </h1>
 
   <img
@@ -22,7 +30,8 @@
 
   <div class="mb-8">
     <h2 class="text-[2.5vh] font-semibold mb-4 flex items-center text-gray-700">
-      <i class="fas fa-cube mr-2 text-black"></i> Sladkor
+      <i class="fas fa-cube mr-2 text-black"></i>
+      {{ translationService.translate({ en: "Sugar", sl: "Sladkor" }) }}
     </h2>
     <div class="flex flex-col items-center w-full">
       <input
@@ -46,48 +55,62 @@
     </div>
   </div>
 
-  <div class="mb-8 text-[2vh]">
+  <div class="mb-8 text-[1.5vh]">
     <h2 class="text-[2.5vh] font-semibold mb-4 flex items-center text-gray-700">
-      <i class="fas fa-cookie-bite mr-2 text-black"></i> Posip
+      <i class="fas fa-cookie-bite mr-2 text-black"></i>
+      {{ translationService.translate({ en: "Toppings", sl: "Posip" }) }}
     </h2>
-    <div class="grid grid-cols-3 gap-[1vh]">
+    <div class="grid grid-cols-4 gap-[1vh]">
       <button
-        (click)="selectedTopping = 'none'"
+        (click)="selectedBeverage.toppings = []"
         [ngClass]="{
           'bg-accent text-white hover:bg-accent-dark':
-            selectedTopping === 'none',
+            selectedBeverage.toppings?.length === 0,
           'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
-            selectedTopping !== 'none'
+          selectedBeverage.toppings?.length !== 0,
         }"
         class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
       >
-        Brez
+        {{ translationService.translate({ en: "none", sl: "brez" }) }}
       </button>
 
       <button
-        (click)="selectedTopping = 'chocolate'"
+        (click)="toggleTopping('chocolate')"
         [ngClass]="{
           'bg-accent text-white hover:bg-accent-dark':
-            selectedTopping === 'chocolate',
+            selectedBeverage.toppings?.includes('chocolate'),
           'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
-            selectedTopping !== 'chocolate'
+            !selectedBeverage.toppings?.includes('chocolate')
         }"
         class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
       >
-        Čokoladni
+        {{ translationService.translate({ en: "chocolate", sl: "čokolada" }) }}
       </button>
 
       <button
-        (click)="selectedTopping = 'marshmallow'"
+        (click)="toggleTopping('cinammon')"
         [ngClass]="{
           'bg-accent text-white hover:bg-accent-dark':
-            selectedTopping === 'marshmallow',
+            selectedBeverage.toppings?.includes('cinammon'),
           'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
-            selectedTopping !== 'marshmallow'
+            !selectedBeverage.toppings?.includes('cinammon')
         }"
         class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
       >
-        Penice
+        {{ translationService.translate({ en: "cinammon", sl: "cimet" }) }}
+      </button>
+
+      <button
+        (click)="toggleTopping('marshmallow')"
+        [ngClass]="{
+          'bg-accent text-white hover:bg-accent-dark':
+            selectedBeverage.toppings?.includes('marshmallow'),
+          'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+            !selectedBeverage.toppings?.includes('marshmallow')
+        }"
+        class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
+      >
+        {{ translationService.translate({ en: "marshmallows", sl: "penice" }) }}
       </button>
     </div>
   </div>
@@ -97,13 +120,15 @@
       class="px-6 py-2 text-white bg-primary rounded-[1vh] hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-gray-500 text-[2vh]"
       (click)="closePage()"
     >
-      <i class="fas fa-arrow-left mr-2"></i>Nazaj
+      <i class="fas fa-arrow-left mr-2"></i
+      >{{ translationService.translate({ en: "Back", sl: "Nazaj" }) }}
     </button>
     <button
       class="px-6 py-2 text-white bg-accent rounded-[1vh] hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-dark text-[2vh]"
       (click)="goToPay()"
     >
-      <i class="fas fa-wallet mr-2"></i>Plačaj
+      <i class="fas fa-wallet mr-2"></i
+      >{{ translationService.translate({ en: "Pay", sl: "Plačaj" }) }}
     </button>
   </div>
 </div>

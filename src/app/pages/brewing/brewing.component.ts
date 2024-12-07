@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Beverage } from '../../../main';
 import { CommonModule } from '@angular/common';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-brewing',
@@ -12,15 +13,19 @@ import { CommonModule } from '@angular/common';
 export class BrewingComponent implements OnInit {
   @Input() selectedBeverage: Beverage = {
     name: '',
+    name_en: '',
     price: '',
     imgSrc: '',
     size: '',
     sugar: null,
+    toppings: [],
   };
   brewingStatus: string = '';
   progressWidth: string = '0%';
   cancelStatus: boolean = true;
   @Output() close = new EventEmitter<void>();
+
+  constructor(public translationService: TranslationService) {}
 
   get coffeeFillClipPath(): string {
     // Calculate the percentage of the cup being filled
@@ -36,7 +41,9 @@ export class BrewingComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('BrewingComponent initialized with:', this.cancelStatus);
-    this.brewingStatus = 'Pripravljam ' + this.selectedBeverage.name + '...';
+
+    this.updateBrewingStatus();
+
     setTimeout(() => {
       this.cancelStatus = false;
       console.log('BrewingComponent initialized with:', this.cancelStatus);
@@ -47,13 +54,27 @@ export class BrewingComponent implements OnInit {
 
       // Update status text
       setTimeout(() => {
-        this.brewingStatus = this.selectedBeverage.name + ' je pripravljen/a!';
+        this.updateBrewingReadyStatus();
       }, 5200);
 
-      // Redirect to home page using Router
+      // Redirect to home page using EventEmitter
       setTimeout(() => {
         this.close.emit();
       }, 6000);
     }, 2000);
+  }
+
+  updateBrewingStatus(): void {
+    this.brewingStatus = this.translationService.translate({
+      en: 'Preparing ' + this.selectedBeverage.name_en + '...',
+      sl: 'Pripravljam ' + this.selectedBeverage.name + '...',
+    });
+  }
+
+  updateBrewingReadyStatus(): void {
+    this.brewingStatus = this.translationService.translate({
+      en: this.selectedBeverage.name_en + ' is ready!',
+      sl: this.selectedBeverage.name + ' je pripravljen/a!',
+    });
   }
 }

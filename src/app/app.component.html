@@ -1,9 +1,36 @@
 <div
   class="absolute w-full h-[7%] bg-primary text-[2vh] text-black z-[10000] flex items-center justify-end pr-2 box-border"
 >
-  Kredit: 2.00 €
+  {{ translationService.translate({ en: "Credit", sl: "Kredit" }) }}: 2.00 €
 </div>
 
-<div class="absolute w-full h-[7%] bg-primary z-[10000] bottom-0"></div>
+<div
+  class="absolute w-full h-[7%] bg-primary z-[10000] bottom-0 flex items-center justify-start pl-[2vh] gap-[1vh]"
+>
+  <button
+    (click)="translationService.switchToEnglish()"
+    [ngClass]="{
+      'bg-accent text-white hover:bg-accent-dark':
+        translationService.currentLanguage === 'en',
+      'bg-primary-dark text-gray-600 hover:bg-gray-200 hover:text-black':
+        translationService.currentLanguage !== 'en'
+    }"
+    class="w-[5vh] text-black px-[1.2vh] py-[0.7vh] text-[1.5vh] rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none transition"
+  >
+    EN
+  </button>
+  <button
+    (click)="translationService.switchToSlovenian()"
+    [ngClass]="{
+      'bg-accent text-white hover:bg-accent-dark':
+        translationService.currentLanguage === 'sl',
+      'bg-primary-dark text-gray-600 hover:bg-gray-200 hover:text-black':
+        translationService.currentLanguage !== 'sl'
+    }"
+    class="w-[5vh] text-black px-[1.2vh] py-[0.7vh] text-[1.5vh] rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none transition"
+  >
+    SLO
+  </button>
+</div>
 
 <router-outlet></router-outlet>

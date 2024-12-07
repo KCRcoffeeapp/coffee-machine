@@ -1,27 +1,17 @@
 import { Component } from '@angular/core';
 import { CoffeesComponent } from './categories/coffees/coffees.component';
-import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { TeasComponent } from './categories/teas/teas.component';
-import { FlavouredComponent } from './categories/flavoured/flavoured.component';
 import { MoreComponent } from './categories/more/more.component';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-home',
-  imports: [
-    CoffeesComponent,
-    CommonModule,
-    TeasComponent,
-    FlavouredComponent,
-    MoreComponent,
-  ],
+  imports: [CoffeesComponent, CommonModule, TeasComponent, MoreComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })
 export class HomeComponent {
-  constructor(private router: Router) {}
-  navigateTo(route: string) {
-    this.router.navigate([route]);
-  }
+  constructor(public translationService: TranslationService) {}
   currentView: string = 'coffees'; // Default view
 }

@@ -8,10 +8,15 @@
     class="w-full max-h-[60%] object-contain"
   />
   <div class="text-[1.6vh] leading-[2vh] mt-[0vh]">
-    {{ selectedBeverage.name }} <br /><span
-      *ngIf="selectedBeverage.sugar !== null"
-      class="text-[1.3vh]"
-      >sladkor: {{ selectedBeverage.sugar }}/5 <br /></span
+    {{
+      translationService.translate({
+        en: selectedBeverage.name_en,
+        sl: selectedBeverage.name
+      })
+    }}
+    <br /><span *ngIf="selectedBeverage.sugar !== null" class="text-[1.3vh]"
+      >{{ translationService.translate({ en: "sugar", sl: "sladkor" }) }}:
+      {{ selectedBeverage.sugar }}/5 <br /></span
     ><span class="font-bold">{{ selectedBeverage.price }}</span>
   </div>
 </div>

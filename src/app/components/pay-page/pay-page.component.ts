@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Beverage } from '../../../main';
+import { TranslationService } from '../../services/translation.service';
 
 @Component({
   selector: 'app-pay-page',
@@ -10,12 +11,15 @@ import { Beverage } from '../../../main';
   imports: [CommonModule],
 })
 export class PayPageComponent {
+  constructor(public translationService: TranslationService) {}
   @Input() selectedBeverage: Beverage = {
     name: '',
+    name_en: '',
     price: '',
     imgSrc: '',
     size: '',
     sugar: null,
+    toppings: [],
   };
   @Output() close = new EventEmitter<void>();
   @Output() brew = new EventEmitter<Beverage>();

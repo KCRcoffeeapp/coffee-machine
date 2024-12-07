@@ -8,8 +8,10 @@ bootstrapApplication(AppComponent, appConfig).catch((err) =>
 
 export interface Beverage {
   name: string;
+  name_en: string;
   price: string;
   imgSrc: string;
   size: string;
   sugar?: number | null;
+  toppings?: string[];
 }

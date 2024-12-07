@@ -6,6 +6,7 @@ import { SelectPageComponent } from '../../../../components/select-page/select-p
 import { PayPageComponent } from '../../../../components/pay-page/pay-page.component';
 import { BrewingComponent } from '../../../brewing/brewing.component';
 import { Beverage } from '../../../../../main';
+import { TranslationService } from '../../../../services/translation.service';
 
 @Component({
   selector: 'app-coffees',
@@ -21,22 +22,27 @@ import { Beverage } from '../../../../../main';
   ],
 })
 export class CoffeesComponent {
-  constructor(private router: Router) {}
+  constructor(public translationService: TranslationService) {}
 
   isSelectPageVisible = false;
   isPayPageVisible = false;
   isBrewPageVisible = false;
   selectedBeverage: Beverage = {
     name: '',
+    name_en: '',
     price: '',
     imgSrc: '',
     size: '',
     sugar: null,
+    toppings: [],
   };
-  selectedPrice = '';
 
   openSelectPage(beverage: Beverage): void {
-    this.selectedBeverage = { ...beverage };
+    this.selectedBeverage = {
+      ...beverage,
+      sugar: 0, // Reset sugar level to 0
+      toppings: [], // Reset toppings to an empty array
+    };
     this.selectedBeverage.sugar = 0;
     this.isSelectPageVisible = true;
   }
@@ -47,6 +53,7 @@ export class CoffeesComponent {
 
   openPayPage(beverage: {
     name: string;
+    name_en: string;
     price: string;
     imgSrc: string;
     size: string;
@@ -61,6 +68,7 @@ export class CoffeesComponent {
 
   openBrewPage(beverage: {
     name: string;
+    name_en: string;
     price: string;
     imgSrc: string;
     size: string;
@@ -74,97 +82,117 @@ export class CoffeesComponent {
     console.log('isBrewPageVisible:', this.isBrewPageVisible);
   }
 
-  navigateTo(route: string): void {
-    this.router.navigate([route]);
-  }
-
   @Input() oneClickBeverages = [
     {
       name: 'Capuccino',
+      name_en: 'Capuccino',
       price: '0.80 €',
       imgSrc: 'capuccino',
       size: 'big',
       sugar: 1,
+      toppings: [],
     },
     {
       name: 'Espresso',
+      name_en: 'Espresso',
       price: '0.90 €',
       imgSrc: 'espresso',
       size: 'small',
       sugar: 0,
+      toppings: [],
     },
     {
-      name: 'Caffe Latte',
+      name: 'Bela kava',
+      name_en: 'Caffe Latte',
       price: '1.20 €',
       imgSrc: 'caffe_latte',
       size: 'big',
       sugar: 2,
+      toppings: [],
     },
   ];
 
   @Input() beverages = [
     {
       name: 'Espresso',
+      name_en: 'Espresso',
       price: '0.80 €',
       imgSrc: 'espresso',
       size: 'small',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Dvojni espresso',
+      name_en: 'Double Espresso',
       price: '1.40 €',
       imgSrc: 'dvojni_espresso',
       size: 'small',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Cappuccino',
+      name_en: 'Capuccino',
       price: '1.00 €',
       imgSrc: 'capuccino',
       size: 'big',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Latte Macchiato',
+      name_en: 'Latte Macchiato',
       price: '1.10 €',
       imgSrc: 'latte_macchiato',
       size: 'big',
       sugar: null,
+      toppings: [],
     },
     {
-      name: 'Caffe Latte',
+      name: 'Bela kava',
+      name_en: 'Caffe Latte',
       price: '1.20 €',
       imgSrc: 'caffe_latte',
       size: 'big',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Americano',
-      price: '0.90 €',
+      name_en: 'Americano',
+      price: '1.20 €',
       imgSrc: 'americano',
       size: 'big',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Mocha',
+      name_en: 'Mocha',
       price: '1.50 €',
       imgSrc: 'mocha',
       size: 'big',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Macchiato',
+      name_en: 'Macchiato',
       price: '1.30 €',
       imgSrc: 'macchiato',
       size: 'small',
       sugar: null,
+      toppings: [],
     },
     {
       name: 'Podaljšana kava',
-      price: '1.10 €',
+      name_en: 'Lungo',
+      price: '0.90 €',
       imgSrc: 'podaljsana_kava',
       size: 'small',
       sugar: null,
+      toppings: [],
     },
   ];
 
