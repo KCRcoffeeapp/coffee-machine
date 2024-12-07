@@ -1,1 +1,71 @@
-<p>more works!</p>
+<!-- <div class="absolute left-[-20%] w-[120%] h-[25%] bg-accent -z-10"></div> -->
+<div class="h-[9s0%] flex flex-col">
+  <div class="w-[100% + 18vh] top-0 p-[1vh] bg-accent ml-[-18vh] pl-[18vh]">
+    <div class="h-[20%] pl-[1vh] text-[3vh] text-primary font-bold -z-10">
+      Z enim klikom
+    </div>
+    <div
+      [ngStyle]="{
+        'max-width': (beverages | slice : 0 : 3).length * 19 + 'vh'
+      }"
+      class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
+    >
+      <app-beverage-card
+        *ngFor="let beverage of oneClickBeverages | slice : 0 : 3"
+        [selectedBeverage]="beverage"
+        (click)="openBrewPage(beverage)"
+      ></app-beverage-card>
+    </div>
+  </div>
+
+  <div class="flex-1 overflow-scroll">
+    <div
+      *ngFor="let group of beverageGroups"
+      [ngStyle]="{ 'max-width': group.length * 19 + 'vh' }"
+      class="top-0 p-[1vh] relative flex gap-[2vh] items-end"
+    >
+      <app-beverage-card
+        *ngFor="let beverage of group"
+        [selectedBeverage]="beverage"
+        (click)="openSelectPage(beverage)"
+      ></app-beverage-card>
+    </div>
+  </div>
+
+  <!-- Background Overlay -->
+  <div
+    *ngIf="isSelectPageVisible"
+    class="fixed top-[7%] bottom-[7%] left-0 w-full h-full bg-black bg-opacity-50 z-[999]"
+    (click)="closeSelectPage(); closePayPage()"
+  ></div>
+
+  <app-select-page
+    [selectedBeverage]="selectedBeverage"
+    [ngClass]="{
+      'right-0': isSelectPageVisible,
+      'right-[-100%]': !isSelectPageVisible
+    }"
+    class="fixed top-[7%] h-[86%] w-[85%] bg-white shadow-lg z-[1000] transition-all duration-700 ease-in-out overflow-y-auto flex"
+    (close)="closeSelectPage()"
+    (closePayPage)="closePayPage()"
+    (proceedToPay)="openPayPage(selectedBeverage)"
+  ></app-select-page>
+
+  <app-pay-page
+    [selectedBeverage]="selectedBeverage"
+    [ngClass]="{
+      'right-0': isPayPageVisible,
+      'right-[-100%]': !isPayPageVisible
+    }"
+    class="fixed top-[7%] h-[86%] right-[-100%] w-[calc(85%-8vh)] bg-white shadow-lg z-[1000] transition-all duration-700 ease-in-out overflow-y-auto flex"
+    (close)="closePayPage()"
+    (brew)="openBrewPage(selectedBeverage); closePayPage(); closeSelectPage()"
+  ></app-pay-page>
+
+  <app-brewing
+    *ngIf="isBrewPageVisible"
+    [selectedBeverage]="selectedBeverage"
+    class="right-0 fixed top-[7%] h-[86%] w-[100%] bg-white shadow-lg z-[1000] transition-all duration-700 ease-in-out overflow-y-auto flex"
+    (close)="closeBrewPage()"
+  ></app-brewing>
+</div>

@@ -1,16 +1,22 @@
 <div
-  class="flex flex-col items-center justify-center h-screen bg-gray-100 font-sans"
+  class="w-full flex flex-col items-center justify-center h-screen bg-gray-100 font-sans"
 >
   <!-- Coffee Machine -->
-  <div class="w-24 h-36 bg-gray-800 rounded-lg relative shadow-md mb-5">
-    <div
-      class="w-16 h-20 bg-gray-300 rounded-b-lg absolute bottom-5 left-1/2 transform -translate-x-1/2 overflow-hidden border-2 border-gray-400"
-    >
-      <div
-        class="w-full h-full bg-gradient-to-t from-[#6b4f2a] to-[#aa7f4f] mt-1/4 transition-transform duration-[5000ms]"
-        [class.filled]="isFilled"
-      ></div>
-    </div>
+  <div class="w-[15vh] h-[20vh] bg-primary rounded-lg relative shadow-md mb-5">
+    <!-- Empty Cup -->
+    <img
+      [src]="'icons/empty_' + selectedBeverage.size + '.svg'"
+      alt="Empty Cup"
+      class="w-[80%] absolute bottom-0 left-1/2 transform -translate-x-1/2 h-auto object-contain"
+    />
+
+    <!-- Filling Coffee -->
+    <img
+      [src]="'icons/' + selectedBeverage.imgSrc + '.svg'"
+      alt="Filling Coffee"
+      class="w-[80%] absolute bottom-0 left-1/2 transform -translate-x-1/2 h-auto object-contain"
+      [style.clipPath]="coffeeFillClipPath"
+    />
   </div>
 
   <!-- Progress Bar -->
@@ -25,4 +31,13 @@
 
   <!-- Brewing Status -->
   <div class="text-gray-700 text-[3vh] mt-2">{{ brewingStatus }}</div>
+  <div class="h-[3vh] flex items-center justify-center pt-[3vh]">
+    <button
+      *ngIf="cancelStatus"
+      class="px-6 py-2 text-white bg-red-500 rounded-[1vh] hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-dark text-[2vh]"
+      (click)="cancelBrewing()"
+    >
+      Prekliči
+    </button>
+  </div>
 </div>

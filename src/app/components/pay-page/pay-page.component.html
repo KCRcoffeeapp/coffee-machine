@@ -1,0 +1,45 @@
+<div
+  class="w-[8vh] bg-accent text-white text-lg font-bold flex items-center justify-center"
+>
+  <span class="transform -rotate-90 whitespace-nowrap text-[2vh]">Plačilo</span>
+</div>
+
+<div class="flex-1 p-6">
+  <h1 class="text-[3vh] font-bold text-center mb-6">
+    Plačaj za {{ selectedBeverage.name }}
+  </h1>
+
+  <div class="mb-8">
+    <h2 class="text-[2vh] font-semibold mb-4 flex items-center text-gray-700">
+      <i class="text-accent"></i> Cena
+    </h2>
+    <div
+      class="flex items-center justify-center text-[3vh] font-bold text-accent"
+    >
+      {{ selectedBeverage.price }}
+    </div>
+
+    <h2 class="text-[2vh] font-semibold mb-4 flex items-center text-gray-700">
+      <i class="text-accent"></i> Kredit
+    </h2>
+    <div
+      class="flex items-center justify-center text-[3vh] font-bold text-accent"
+    >
+      2.00 €
+    </div>
+    <div class="flex justify-between mt-6">
+      <button
+        class="px-6 py-2 text-white bg-primary rounded-[1vh] hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-gray-500 text-[2vh]"
+        (click)="closePage()"
+      >
+        <i class="fas fa-arrow-left mr-2"></i>Nazaj
+      </button>
+      <button
+        class="px-6 py-2 text-white bg-accent rounded-[1vh] hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-dark text-[2vh]"
+        (click)="startBrewing()"
+      >
+        <i class="fas fa-mug-hot mr-2"></i>Skuhaj
+      </button>
+    </div>
+  </div>
+</div>

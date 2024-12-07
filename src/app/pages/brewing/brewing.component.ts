@@ -1,43 +1,59 @@
-import { Component, OnInit, Inject, PLATFORM_ID } from '@angular/core';
-import { isPlatformBrowser } from '@angular/common';
-import { Router } from '@angular/router';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Beverage } from '../../../main';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-brewing',
   templateUrl: './brewing.component.html',
   styleUrls: ['./brewing.component.css'],
+  standalone: true,
+  imports: [CommonModule],
 })
 export class BrewingComponent implements OnInit {
-  brewingStatus: string = 'Pripravljam napitek...';
+  @Input() selectedBeverage: Beverage = {
+    name: '',
+    price: '',
+    imgSrc: '',
+    size: '',
+    sugar: null,
+  };
+  brewingStatus: string = '';
   progressWidth: string = '0%';
-  isFilled: boolean = false;
+  cancelStatus: boolean = true;
+  @Output() close = new EventEmitter<void>();
 
-  constructor(
-    @Inject(PLATFORM_ID) private platformId: Object,
-    private router: Router,
-  ) {}
+  get coffeeFillClipPath(): string {
+    // Calculate the percentage of the cup being filled
+    const fillPercentage = parseInt(this.progressWidth, 10) || 0;
+    return `polygon(0% 100%, 100% 100%, 100% ${100 - fillPercentage}%, 0% ${
+      100 - fillPercentage
+    }%)`;
+  }
+
+  cancelBrewing(): void {
+    this.close.emit();
+  }
 
   ngOnInit(): void {
-    if (isPlatformBrowser(this.platformId)) {
+    console.log('BrewingComponent initialized with:', this.cancelStatus);
+    this.brewingStatus = 'Pripravljam ' + this.selectedBeverage.name + '...';
+    setTimeout(() => {
+      this.cancelStatus = false;
+      console.log('BrewingComponent initialized with:', this.cancelStatus);
       // Start progress bar animation
       setTimeout(() => {
         this.progressWidth = '100%';
       }, 50);
 
-      // Start cup filling animation after progress bar completes
-      setTimeout(() => {
-        this.isFilled = true;
-      }, 5050);
-
       // Update status text
       setTimeout(() => {
-        this.brewingStatus = 'Napitek je pripravljen!';
+        this.brewingStatus = this.selectedBeverage.name + ' je pripravljen/a!';
       }, 5200);
 
       // Redirect to home page using Router
       setTimeout(() => {
-        this.router.navigate(['/']);
+        this.close.emit();
       }, 6000);
-    }
+    }, 2000);
   }
 }

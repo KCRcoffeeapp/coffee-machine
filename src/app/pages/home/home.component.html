@@ -4,53 +4,36 @@
       <!-- Coffees -->
       <div
         (click)="currentView = 'coffees'"
-        class="flex flex-col items-center gap-[2vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[2vh]"
+        class="flex flex-col items-center justify-end gap-[0vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh] pt-[2vh] pb-[2vh] font-bold"
       >
-        Coffees
-        <img
-          src="icons/coffee.svg"
-          alt="Coffee Cup Icon"
-          class="h-[75%] w-[75%]"
-        />
+        <img src="icons/macchiato.svg" alt="Coffee Cup Icon" class="w-[100%]" />
+        KAVE
       </div>
 
       <!-- Teas -->
       <div
         (click)="currentView = 'teas'"
-        class="flex flex-col items-center gap-[2vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[2vh]"
+        class="flex flex-col items-center justify-end gap-[0vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh] pt-[2vh] pb-[2vh] font-bold"
       >
-        Teas
         <img
-          src="icons/coffee.svg"
+          src="icons/planinski_caj.svg"
           alt="Coffee Cup Icon"
-          class="h-[75%] w-[75%]"
+          class="w-[100%]"
         />
-      </div>
-
-      <!-- Flavoured -->
-      <div
-        (click)="currentView = 'flavoured'"
-        class="flex flex-col items-center gap-[2vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[2vh]"
-      >
-        Flavoured
-        <img
-          src="icons/coffee.svg"
-          alt="Coffee Cup Icon"
-          class="h-[75%] w-[75%]"
-        />
+        ČAJI
       </div>
 
       <!-- More -->
       <div
         (click)="currentView = 'more'"
-        class="flex flex-col items-center gap-[2vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[2vh]"
+        class="flex flex-col items-center justify-end gap-[0vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh] font-bold pt-[2vh] pb-[2vh]"
       >
-        More
         <img
-          src="icons/coffee.svg"
+          src="icons/vroca_cokolada.svg"
           alt="Coffee Cup Icon"
-          class="h-[75%] w-[75%]"
+          class="w-[90%]"
         />
+        <span class="leading-[2vh]">DRUGI NAPITKI</span>
       </div>
     </div>
   </div>
