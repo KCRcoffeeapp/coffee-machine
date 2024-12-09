@@ -1,12 +1,23 @@
 <div class="flex absolute inset-0 top-[7%]">
   <div class="h-screen py-[2vh] pr-[2vh] z-10 w-[18vh] max-w-[20%]">
-    <div class="flex flex-col gap-[1.5vh] h-full">
+    <div
+      [ngClass]="{
+        'justify-end': accesibilityService.accessibility,
+        'justify-start': !accesibilityService.accessibility
+      }"
+      class="flex flex-col gap-[1.5vh] h-[86%]"
+    >
       <!-- Coffees -->
       <div
         (click)="currentView = 'coffees'"
         class="flex flex-col items-center justify-end gap-[0vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh] pt-[2vh] pb-[2vh] font-bold"
       >
-        <img src="icons/macchiato.svg" alt="Coffee Cup Icon" class="w-[100%]" />
+        <img
+          *ngIf="!accesibilityService.accessibility"
+          src="icons/macchiato.svg"
+          alt="Coffee Cup Icon"
+          class="w-[100%]"
+        />
         {{ translationService.translate({ en: "COFFEES", sl: "KAVE" }) }}
       </div>
 
@@ -16,6 +27,7 @@
         class="flex flex-col items-center justify-end gap-[0vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh] pt-[2vh] pb-[2vh] font-bold"
       >
         <img
+          *ngIf="!accesibilityService.accessibility"
           src="icons/planinski_caj.svg"
           alt="Coffee Cup Icon"
           class="w-[100%]"
@@ -29,6 +41,7 @@
         class="flex flex-col items-center justify-end gap-[0vh] text-center text-[2vh] bg-primary text-accent rounded-r-[2vh] shadow-lg cursor-pointer p-[1vh] font-bold pt-[2vh] pb-[2vh]"
       >
         <img
+          *ngIf="!accesibilityService.accessibility"
           src="icons/vroca_cokolada.svg"
           alt="Coffee Cup Icon"
           class="w-[90%]"

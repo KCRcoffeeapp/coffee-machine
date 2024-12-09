@@ -7,6 +7,7 @@ import { PayPageComponent } from '../../../../components/pay-page/pay-page.compo
 import { BrewingComponent } from '../../../brewing/brewing.component';
 import { Beverage } from '../../../../../main';
 import { TranslationService } from '../../../../services/translation.service';
+import { AccessibilityService } from '../../../../services/accessibility.service';
 
 @Component({
   selector: 'app-coffees',
@@ -22,7 +23,10 @@ import { TranslationService } from '../../../../services/translation.service';
   ],
 })
 export class CoffeesComponent {
-  constructor(public translationService: TranslationService) {}
+  constructor(
+    public translationService: TranslationService,
+    public accesibilityService: AccessibilityService
+  ) {}
 
   isSelectPageVisible = false;
   isPayPageVisible = false;

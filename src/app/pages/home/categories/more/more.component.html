@@ -1,5 +1,11 @@
 <!-- <div class="absolute left-[-20%] w-[120%] h-[25%] bg-accent -z-10"></div> -->
-<div class="h-[9s0%] flex flex-col">
+<div
+  [ngClass]="{
+  'justify-between': accesibilityService.accessibility,
+  'justify-start': !accesibilityService.accessibility,
+}"
+  class="h-[90%] flex flex-col"
+>
   <div class="w-[100% + 18vh] top-0 p-[1vh] bg-accent ml-[-18vh] pl-[18vh]">
     <div class="h-[20%] pl-[1vh] text-[3vh] text-primary font-bold -z-10">
       {{
@@ -23,7 +29,12 @@
     </div>
   </div>
 
-  <div class="flex-1 overflow-scroll">
+  <div
+    [ngClass]="{
+    'h-[19vh]': accesibilityService.accessibility,
+  }"
+    class="overflow-scroll"
+  >
     <div
       *ngFor="let group of beverageGroups"
       [ngStyle]="{ 'max-width': group.length * 19 + 'vh' }"
@@ -48,7 +59,9 @@
     [selectedBeverage]="selectedBeverage"
     [ngClass]="{
       'right-0': isSelectPageVisible,
-      'right-[-100%]': !isSelectPageVisible
+      'right-[-100%]': !isSelectPageVisible,
+      'items-end': accesibilityService.accessibility,
+      'items-start': !accesibilityService.accessibility
     }"
     class="fixed top-[7%] h-[86%] w-[85%] bg-white shadow-lg z-[1000] transition-all duration-700 ease-in-out overflow-y-auto flex"
     (close)="closeSelectPage()"
@@ -60,7 +73,9 @@
     [selectedBeverage]="selectedBeverage"
     [ngClass]="{
       'right-0': isPayPageVisible,
-      'right-[-100%]': !isPayPageVisible
+      'right-[-100%]': !isPayPageVisible,
+      'items-end': accesibilityService.accessibility,
+      'items-start': !accesibilityService.accessibility
     }"
     class="fixed top-[7%] h-[86%] right-[-100%] w-[calc(85%-8vh)] bg-white shadow-lg z-[1000] transition-all duration-700 ease-in-out overflow-y-auto flex"
     (close)="closePayPage()"

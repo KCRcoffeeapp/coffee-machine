@@ -2,6 +2,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Beverage } from '../../../main';
 import { CommonModule } from '@angular/common';
 import { TranslationService } from '../../services/translation.service';
+import { AccessibilityService } from '../../services/accessibility.service';
 
 @Component({
   selector: 'app-brewing',
@@ -25,7 +26,10 @@ export class BrewingComponent implements OnInit {
   cancelStatus: boolean = true;
   @Output() close = new EventEmitter<void>();
 
-  constructor(public translationService: TranslationService) {}
+  constructor(
+    public translationService: TranslationService,
+    public accesibilityService: AccessibilityService
+  ) {}
 
   get coffeeFillClipPath(): string {
     // Calculate the percentage of the cup being filled

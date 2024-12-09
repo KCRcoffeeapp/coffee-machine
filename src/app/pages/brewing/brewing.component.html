@@ -31,7 +31,13 @@
 
   <!-- Brewing Status -->
   <div class="text-gray-700 text-[3vh] mt-2">{{ brewingStatus }}</div>
-  <div class="h-[3vh] flex items-center justify-center pt-[3vh]">
+  <div
+    [ngClass]="{
+      'items-end': accesibilityService.accessibility,
+      'items-start': !accesibilityService.accessibility
+    }"
+    class="h-[20vh] flex justify-center pt-[3vh]"
+  >
     <button
       *ngIf="cancelStatus"
       class="px-6 py-2 text-white bg-red-500 rounded-[1vh] hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-dark text-[2vh]"

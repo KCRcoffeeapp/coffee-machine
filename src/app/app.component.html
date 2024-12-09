@@ -10,27 +10,42 @@
   <button
     (click)="translationService.switchToEnglish()"
     [ngClass]="{
-      'bg-accent text-white hover:bg-accent-dark':
-        translationService.currentLanguage === 'en',
-      'bg-primary-dark text-gray-600 hover:bg-gray-200 hover:text-black':
+      'bg-accent text-white': translationService.currentLanguage === 'en',
+      'bg-primary-dark text-gray-600':
         translationService.currentLanguage !== 'en'
     }"
-    class="w-[5vh] text-black px-[1.2vh] py-[0.7vh] text-[1.5vh] rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none transition"
+    class="w-[5vh] text-black px-[1.2vh] py-[0.7vh] text-[1.5vh] rounded-lg focus:outline-none transition"
   >
     EN
   </button>
   <button
     (click)="translationService.switchToSlovenian()"
     [ngClass]="{
-      'bg-accent text-white hover:bg-accent-dark':
-        translationService.currentLanguage === 'sl',
-      'bg-primary-dark text-gray-600 hover:bg-gray-200 hover:text-black':
+      'bg-accent text-white': translationService.currentLanguage === 'sl',
+      'bg-primary-dark text-gray-600':
         translationService.currentLanguage !== 'sl'
     }"
-    class="w-[5vh] text-black px-[1.2vh] py-[0.7vh] text-[1.5vh] rounded-lg hover:bg-accent-dark hover:text-white focus:outline-none transition"
+    class="w-[5vh] text-black px-[1.2vh] py-[0.7vh] text-[1.5vh] rounded-lg focus:outline-none transition"
   >
     SLO
   </button>
+  <div class="ml-auto pr-[2vh]">
+    <button
+      (click)="accesibilityService.toggleAccessibility()"
+      [ngClass]="{
+        'bg-accent text-white': accesibilityService.accessibility,
+        'bg-primary-dark text-gray-600': !accesibilityService.accessibility
+      }"
+      class="w-[5vh] h-[5vh] p-[1vh] text-black rounded-lg focus:outline-none transition"
+      aria-label="Enable Accessibility"
+    >
+      <img
+        src="icons/wheelchair.svg"
+        alt="Accessibility"
+        class="w-full h-full"
+      />
+    </button>
+  </div>
 </div>
 
 <router-outlet></router-outlet>
