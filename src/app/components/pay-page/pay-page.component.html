@@ -18,6 +18,42 @@
   </h1>
 
   <div class="mb-8">
+    <h2 class="text-[2vh] font-semibold text-center mb-4 text-gray-700">
+      {{
+        translationService.translate({
+          en: "Payment Methods",
+          sl: "Načini plačila"
+        })
+      }}
+    </h2>
+    <div
+      class="flex items-center justify-center gap-[4vh] p-4 bg-gray-100 rounded-lg"
+    >
+      <!-- Contactless Payment -->
+      <div class="flex flex-col items-center">
+        <img
+          src="icons/contactless-icon.svg"
+          class="h-[4vh] object-contain mb-2"
+        />
+        <span class="text-[1.5vh] text-gray-600">{{
+          translationService.translate({ en: "Contactless", sl: "Brezstično" })
+        }}</span>
+      </div>
+
+      <!-- Cash Payments Group -->
+      <div class="flex flex-col items-center">
+        <div class="flex gap-[2vh] mb-2 items-end">
+          <img src="icons/euro-note-icon.svg" class="h-[3vh] object-contain" />
+          <img src="icons/money-icon.svg" class="h-[4vh] object-contain" />
+        </div>
+        <span class="text-[1.5vh] text-gray-600">{{
+          translationService.translate({ en: "Cash", sl: "Gotovina" })
+        }}</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="mb-8">
     <h2 class="text-[2vh] font-semibold mb-4 flex items-center text-gray-700">
       <i class="text-accent"></i>
       {{ translationService.translate({ en: "Price", sl: "Cena" }) }}
