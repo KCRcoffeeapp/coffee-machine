@@ -1,5 +1,5 @@
 <div
-  class="w-[8vh] h-full bg-accent text-white text-lg font-bold flex items-center justify-center"
+  class="w-[8vh] h-full bg-popular text-white text-lg font-bold flex items-center justify-center"
 >
   <span class="transform -rotate-90 whitespace-nowrap text-[2vh]">{{
     translationService.translate({ en: "Payment", sl: "Plačilo" })
@@ -27,7 +27,7 @@
       }}
     </h2>
     <div
-      class="flex items-center justify-center gap-[4vh] p-4 bg-gray-100 rounded-lg"
+      class="flex items-center justify-center gap-[4vh] p-4 bg-tabs rounded-lg"
     >
       <!-- Contactless Payment -->
       <div class="flex flex-col items-center">
@@ -75,7 +75,7 @@
     </div>
     <div class="flex justify-between mt-6">
       <button
-        class="px-6 py-2 text-white bg-primary rounded-[1vh] hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-gray-500 text-[2vh]"
+        class="px-6 py-2 text-white bg-accent-light rounded-[1vh] hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-gray-500 text-[2vh]"
         (click)="closePage()"
       >
         <i class="fas fa-arrow-left mr-2"></i

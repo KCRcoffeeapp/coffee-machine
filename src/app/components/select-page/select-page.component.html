@@ -1,8 +1,8 @@
 <!-- Sliding Select Page -->
 
-<!-- Left Vertical Border with Text -->
+<!-- Left Vertical with Text -->
 <div
-  class="w-[8vh] h-full bg-accent text-white text-[2vh] font-bold flex items-center justify-center"
+  class="w-[8vh] h-full bg-popular text-white text-[2vh] font-bold flex items-center justify-center"
   (click)="closePay()"
 >
   <span class="transform -rotate-90 whitespace-nowrap">{{
@@ -39,7 +39,7 @@
         min="0"
         max="5"
         [(ngModel)]="selectedBeverage.sugar"
-        class="w-[85%] h-2 bg-gray-300 rounded-[3vh] appearance-none focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
+        class="w-[85%] h-2 bg-primary rounded-[3vh] appearance-none focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2"
         id="sugarLevel"
       />
       <div
@@ -64,12 +64,12 @@
       <button
         (click)="selectedBeverage.toppings = []"
         [ngClass]="{
-          'bg-accent text-white hover:bg-accent-dark':
+          'bg-accent text-white shadow-inner-pressed':
             selectedBeverage.toppings?.length === 0,
-          'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+          'bg-primary text-gray-600':
           selectedBeverage.toppings?.length !== 0,
         }"
-        class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
+        class="p-[1vh] rounded-[1vh] cursor-pointer text-center transition"
       >
         {{ translationService.translate({ en: "none", sl: "brez" }) }}
       </button>
@@ -77,12 +77,12 @@
       <button
         (click)="toggleTopping('chocolate')"
         [ngClass]="{
-          'bg-accent text-white hover:bg-accent-dark':
+          'bg-accent text-white shadow-inner-pressed':
             selectedBeverage.toppings?.includes('chocolate'),
-          'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+          'bg-primary text-gray-600':
             !selectedBeverage.toppings?.includes('chocolate')
         }"
-        class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
+        class="p-[1vh] rounded-[1vh] cursor-pointer text-center transition"
       >
         {{ translationService.translate({ en: "chocolate", sl: "čokolada" }) }}
       </button>
@@ -90,12 +90,12 @@
       <button
         (click)="toggleTopping('cinammon')"
         [ngClass]="{
-          'bg-accent text-white hover:bg-accent-dark':
+          'bg-accent text-white shadow-inner-pressed':
             selectedBeverage.toppings?.includes('cinammon'),
-          'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+          'bg-primary text-gray-600':
             !selectedBeverage.toppings?.includes('cinammon')
         }"
-        class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
+        class="p-[1vh] rounded-[1vh] cursor-pointer text-center transition"
       >
         {{ translationService.translate({ en: "cinammon", sl: "cimet" }) }}
       </button>
@@ -103,12 +103,12 @@
       <button
         (click)="toggleTopping('marshmallow')"
         [ngClass]="{
-          'bg-accent text-white hover:bg-accent-dark':
+          'bg-accent text-white shadow-inner-pressed':
             selectedBeverage.toppings?.includes('marshmallow'),
-          'bg-gray-100 text-gray-600 hover:bg-gray-200 hover:text-black':
+          'bg-primary text-gray-600':
             !selectedBeverage.toppings?.includes('marshmallow')
         }"
-        class="p-[1vh] border rounded-[1vh] cursor-pointer text-center transition"
+        class="p-[1vh] rounded-[1vh] cursor-pointer text-center transition"
       >
         {{ translationService.translate({ en: "marshmallows", sl: "penice" }) }}
       </button>
@@ -117,14 +117,14 @@
 
   <div class="flex justify-between mt-6">
     <button
-      class="px-6 py-2 text-white bg-primary rounded-[1vh] hover:bg-primary-dark focus:outline-none focus:ring-2 focus:ring-gray-500 text-[2vh]"
+      class="px-6 py-2 text-white bg-accent-light rounded-[1vh] focus:outline-none focus:ring-2 focus:ring-gray-500 text-[2vh]"
       (click)="closePage()"
     >
       <i class="fas fa-arrow-left mr-2"></i
       >{{ translationService.translate({ en: "Back", sl: "Nazaj" }) }}
     </button>
     <button
-      class="px-6 py-2 text-white bg-accent rounded-[1vh] hover:bg-accent-dark focus:outline-none focus:ring-2 focus:ring-accent-dark text-[2vh]"
+      class="px-6 py-2 text-white bg-accent rounded-[1vh] focus:outline-none focus:ring-2 focus:ring-accent-dark text-[2vh]"
       (click)="goToPay()"
     >
       <i class="fas fa-wallet mr-2"></i

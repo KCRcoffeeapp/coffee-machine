@@ -1,17 +1,17 @@
 <div
-  class="absolute w-full h-[7%] bg-primary text-[2vh] text-black z-[10000] flex items-center justify-end pr-2 box-border"
+  class="absolute w-full h-[7%] bg-header text-[2vh] text-black z-[10000] flex items-center justify-end pr-2 box-border"
 >
   {{ translationService.translate({ en: "Credit", sl: "Kredit" }) }}: 2.00 €
 </div>
 
 <div
-  class="absolute w-full h-[7%] bg-primary z-[10000] bottom-0 flex items-center justify-start pl-[2vh] gap-[1vh]"
+  class="absolute w-full h-[7%] bg-header z-[10000] bottom-0 flex items-center justify-start pl-[2vh] gap-[1vh]"
 >
   <button
     (click)="translationService.switchToEnglish()"
     [ngClass]="{
-      'bg-accent text-white': translationService.currentLanguage === 'en',
-      'bg-primary-dark text-gray-600':
+      'bg-accent text-white shadow-inner-pressed': translationService.currentLanguage === 'en',
+      'bg-neutral text-gray-600':
         translationService.currentLanguage !== 'en'
     }"
     class="w-[5vh] text-black px-[1.2vh] py-[0.7vh] text-[1.5vh] rounded-lg focus:outline-none transition"
@@ -21,8 +21,8 @@
   <button
     (click)="translationService.switchToSlovenian()"
     [ngClass]="{
-      'bg-accent text-white': translationService.currentLanguage === 'sl',
-      'bg-primary-dark text-gray-600':
+      'bg-accent text-white shadow-inner-pressed': translationService.currentLanguage === 'sl',
+      'bg-neutral text-gray-600':
         translationService.currentLanguage !== 'sl'
     }"
     class="w-[5vh] text-black px-[1.2vh] py-[0.7vh] text-[1.5vh] rounded-lg focus:outline-none transition"
@@ -33,8 +33,8 @@
     <button
       (click)="accesibilityService.toggleAccessibility()"
       [ngClass]="{
-        'bg-accent text-white': accesibilityService.accessibility,
-        'bg-primary-dark text-gray-600': !accesibilityService.accessibility
+        'bg-accent text-white shadow-inner-pressed': accesibilityService.accessibility,
+        'bg-neutral text-gray-600': !accesibilityService.accessibility
       }"
       class="w-[5vh] h-[5vh] p-[1vh] text-black rounded-lg focus:outline-none transition"
       aria-label="Enable Accessibility"

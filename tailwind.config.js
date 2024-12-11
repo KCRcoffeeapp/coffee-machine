@@ -6,8 +6,8 @@ module.exports = {
     extend: {
       colors: {
         primary: {
-          light: "#A5D8FF", // Light variant
-          DEFAULT: "#d9d9d9", // Default (base) color
+          light: "#eae4dd", // Light variant
+          DEFAULT: "#dfd5c9", // Default (base) color
           dark: "#b8b8b8", // Dark variant
         },
         secondary: {
@@ -17,13 +17,28 @@ module.exports = {
         },
         neutral: {
           light: "#F5F5F5",
-          DEFAULT: "#f0f0f0",
-          dark: "#4B5563",
+          DEFAULT: "#fffaf2",
+          dark: "#feefde",
         },
         accent: {
-          light: "#FFD6A5",
-          DEFAULT: "#808080",
+          light: "#e0cbb2",
+          DEFAULT: "#8b7f6e",
           dark: "#676767",
+        },
+        tabs: {
+          light: "#A5D8FF", // Light variant
+          DEFAULT: "#f1eae0", // Default (base) color
+          dark: "#b8b8b8", // Dark variant
+        },
+        header: {
+          light: "#A5D8FF", // Light variant
+          DEFAULT: "#e0cbb2", // Default (base) color
+          dark: "#b8b8b8", // Dark variant
+        },
+        popular: {
+          light: "#FFEDD5",
+          DEFAULT: "#8b7f6e",
+          dark: "#C87A1F",
         },
       },
     },
