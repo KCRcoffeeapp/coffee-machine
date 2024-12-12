@@ -6,6 +6,7 @@ import { TranslationService } from '../../services/translation.service';
 @Component({
   selector: 'app-beverage-card',
   templateUrl: './beverage-card.component.html',
+  styleUrl: './beverage-card.component.css',
   imports: [CommonModule],
 })
 export class BeverageCardComponent {

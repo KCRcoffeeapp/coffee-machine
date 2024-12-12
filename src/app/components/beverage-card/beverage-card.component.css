@@ -1,0 +1,4 @@
+#outer-card {
+    box-shadow: inset 0px 2px 3px 0px #fffdf9, inset 1px -4px 3px #cfc8b5, 0px 3px 3px 0px rgba(0, 0, 0, 0.3);
+    background-color: #dfd5c9;
+}
