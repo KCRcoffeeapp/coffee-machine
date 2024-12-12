@@ -90,7 +90,7 @@ export class CoffeesComponent {
     {
       name: 'Capuccino',
       name_en: 'Capuccino',
-      price: '0.80 €',
+      price: '0.90 €',
       imgSrc: 'capuccino',
       size: 'big',
       sugar: 1,
@@ -99,7 +99,7 @@ export class CoffeesComponent {
     {
       name: 'Espresso',
       name_en: 'Espresso',
-      price: '0.90 €',
+      price: '0.80 €',
       imgSrc: 'espresso',
       size: 'small',
       sugar: 0,
@@ -138,7 +138,7 @@ export class CoffeesComponent {
     {
       name: 'Cappuccino',
       name_en: 'Capuccino',
-      price: '1.00 €',
+      price: '0.90 €',
       imgSrc: 'capuccino',
       size: 'big',
       sugar: null,
